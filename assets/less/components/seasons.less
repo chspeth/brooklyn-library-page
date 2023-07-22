@@ -1,0 +1,77 @@
+.seasons__list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 40px 260px;
+  margin-bottom: 40px;
+  
+  &--spring,
+  &--summer,
+  &--autumn {
+    display: none;
+  }
+}
+
+.seasons__item {
+  position: relative;
+  box-sizing: border-box;
+  padding: 15px 20px;
+  border: 1px solid @base-text-color; 
+  width: 550px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.seasons__item-title {
+  position: relative;
+  font-family: "Forum", cursive;
+  letter-spacing: 2px; 
+  text-transform: capitalize; 
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.seasons__item-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 1px;
+  background-color: @accent-color;
+}
+
+.seasons__book-title {
+  font-size: 15px;
+  font-weight: 700; 
+  text-transform: uppercase; 
+  margin: 0;
+}
+
+.seasons__book-autor {
+  font-size: 15px;
+  font-weight: 700; 
+  text-transform: capitalize; 
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.seasons__book-summary {
+  font-size: 15px;
+  text-transform: capitalize;
+  margin: 0;
+  margin-bottom: 14px;
+  width: 357px;
+  flex: 1 0 auto;
+}
+
+.seasons__image {
+  position: absolute;
+  bottom: -1px;
+  right: -40px;
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}

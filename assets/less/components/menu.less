@@ -1,0 +1,44 @@
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu__table {
+  border-spacing: 0 38px;
+  text-transform: capitalize; 
+
+  &:first-child {
+    text-align: left;
+  }
+
+  &:last-child {
+    text-align: right;
+  }
+}
+
+.menu__table-header {
+  color: @accent-color;
+  text-transform: capitalize; 
+  font-size: 40px; 
+  font-family: "Forum", cursive;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.menu__price {
+  position: relative;
+  padding-left: 215px;
+  font-size: 19px;
+  letter-spacing: normal;
+}
+
+.menu__price::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 60px;
+  width: 100px;
+  height: 1px;
+  background-color: @accent-color;
+}

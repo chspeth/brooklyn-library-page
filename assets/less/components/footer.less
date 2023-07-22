@@ -1,0 +1,69 @@
+.footer {
+  background-color: @header-bg-color;
+  color: @header-text-color;
+
+  a:hover {
+    opacity: 0.7;
+  }
+
+  a:active {
+    opacity: 0.4;
+  }
+}
+
+.footer__up {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: normal;
+  padding-bottom: 20px;
+  border-bottom: 1px solid @header-text-color;
+}
+
+.footer__up-left {
+  width: 230px;
+}
+
+.footer__address {
+  font-style: normal;
+  margin: 0;
+  margin-bottom: 18px;
+}
+
+.footer__address-link,
+.footer__down-link {
+  text-decoration: none;
+  color: @header-text-color;
+}
+
+.footer__social-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.footer__social-item {
+  width: 24px;
+  height: 24px; 
+}
+
+.footer__open-hours {
+  text-align: right;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.footer__down {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 35px 0;
+}
+
+.footer__down span:first-child {
+  display: block;
+  margin-right: 180px;
+}

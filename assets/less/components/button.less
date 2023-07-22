@@ -1,0 +1,31 @@
+.button {
+  display: block;
+  width: 75px;
+  height: 30px;
+  font-size: 10px; 
+  font-weight: 700; 
+  line-height: normal;
+  letter-spacing: 1px; 
+  background-color: transparent;
+  border: 1px solid @title-text-color; 
+  border-radius: 2px; 
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: @accent-color;
+  border-color: @accent-color;
+  transition: all 0.5s;
+}
+
+.button:disabled,
+.button--disabled {
+  color: @accent-color;
+  border-color: @accent-color;
+  cursor: default;
+}
+
+.button:disabled:hover,
+.button--disabled:hover {
+  background-color: transparent;
+}
