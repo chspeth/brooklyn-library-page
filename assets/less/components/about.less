@@ -11,11 +11,61 @@
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 35px;
+
+  @media (max-width: @tablet-width) {
+    width: 84.34%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 24px;
+      height: 24px; 
+      left: 0;
+      top: calc(50% + 9px);
+      background-image: url("../img/icons/about-arrow-icon.svg");
+      background-position: center;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 24px;
+      height: 24px; 
+      right: 0;
+      top: calc(50% + 9px);
+      background-image: url("../img/icons/about-arrow-icon.svg");
+      background-position: center;
+      background-size: 24px 24px;
+      background-repeat: no-repeat;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.about__item {
+  width: 32.14%;
+
+  @media (max-width: @tablet-width) {
+    width: 73.29%;
+    margin: 0 auto;
+
+    &:not(:first-child) {
+      display: none;
+    }
+  }
 }
 
 .about__image {
-  width: 450px;
-  height: 560px;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
 }
 
 .about__pagination {
@@ -32,6 +82,14 @@
   display: flex;
   align-content: center;
   cursor: pointer;
+
+  &:nth-last-child(-n+2) {
+    display: none;
+
+    @media (max-width: @tablet-width) {
+      display: flex;
+    }
+  }
 }
 
 .about__pagination-button {

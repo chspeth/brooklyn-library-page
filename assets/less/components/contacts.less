@@ -1,5 +1,9 @@
 .contacts__wrapper {
   padding-bottom: 40px;
+
+  @media (max-width: @tablet-width) {
+    padding-top: 23px;
+  }
 }
 
 .contacts__container {
@@ -8,6 +12,10 @@
   justify-content: space-between;
   text-transform: capitalize; 
   font-style: normal;
+
+  @media (max-width: @middle-width) {
+    flex-direction: column;
+  }
 
   a {
     text-decoration: none;
@@ -43,4 +51,15 @@
   border: 0;
   width: 696px;
   height: 414px; 
+
+  @media (max-width: @middle-width) {
+    width: 95.6%;
+    margin: 0 auto;
+  }
+}
+
+.contacts__contacts {
+  @media (max-width: @middle-width) {
+    margin-bottom: 80px;
+  }
 }

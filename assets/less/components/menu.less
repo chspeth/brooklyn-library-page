@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media (max-width: @middle-width) {
+    flex-direction: column;
+  }
 }
 
 .menu__table {
@@ -10,10 +14,20 @@
 
   &:first-child {
     text-align: left;
+
+    @media (max-width: @middle-width) {
+      width: 60.16%;
+    }
   }
 
   &:last-child {
     text-align: right;
+
+    @media (max-width: @middle-width) {
+      width: 64.2%;
+      align-self: flex-end;
+      margin-top: -40px;
+    }
   }
 }
 
@@ -31,6 +45,10 @@
   padding-left: 215px;
   font-size: 19px;
   letter-spacing: normal;
+
+  @media (max-width: @middle-width) {
+    padding-left: 210px;
+  }
 }
 
 .menu__price::after {

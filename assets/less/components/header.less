@@ -5,24 +5,9 @@
 }
 
 .header__wrapper {
-  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.header__wrapper::after {
-  content: '';
-  position: absolute;
-  bottom: 11px;
-  right: 20px;
-  width: 28px;
-  height: 28px;
-  background-image: url("../img/icons/icon-profile.svg");
-  background-position: center;
-  background-size: 28px 28px;
-  background-repeat: no-repeat;
-  border-radius: 50%;
 }
 
 .header__logo {
@@ -35,38 +20,58 @@
   margin: 0;
 }
 
-.header__navigation {
-  margin-right: 53px;
-}
-
-.header__list {
+.header__nav-wrapper {
   display: flex;
   flex-direction: row;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
-.header__item {
-  padding: 5px 15px;
+.header__navigation {
+  margin-right: 24px;
+
+  @media (max-width: @middle-width) {
+    display: none;
+  }
+}
+
+.header__button {
+  display: inline-block;
+  border: 0;
+  width: 34px;
+  height: 34px;
+  background-color: transparent;
   cursor: pointer;
-}
 
-.header__link {
-  letter-spacing: normal;
-  color: @header-text-color;
-  text-decoration: none;
-  cursor: pointer;
-}
+  &--profile {
+    margin-right: -3px;
+    margin-bottom: 1px;
+    align-self: center;
+    background-image: url("../img/icons/icon-profile.svg");
+    background-position: center;
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+  }
 
-.header__link:active {
-  opacity: 0.4;
-}
+  &--navigation {
+    display: none;
 
-.header__link:hover {
-  opacity: 0.7;
-}
+    @media (max-width: @middle-width) {
+      position: relative;
+      display: inline-block;
+      width: 45px;
+      background-color: transparent;
+      margin-top: 6px;
+      margin-left: 40px;
 
-.header__link:active {
-  opacity: 0.4;
+      &::after {
+        content: '';
+        position: absolute;
+        width: 45px;
+        height: 2px;
+        top: 7px;
+        right: 0;
+        background-color: @header-text-color;
+        box-shadow: 0 10px 0 0 @header-text-color, 0 20px 0 0 @header-text-color;
+      }
+    }
+  }
 }

@@ -61,9 +61,20 @@
   flex-direction: row;
   justify-content: space-between;
   padding: 35px 0;
+
+  @media (max-width: @middle-width) {
+    &-link:last-of-type {
+      width: 120px;
+      text-align: center;
+    }
+  }
 }
 
 .footer__down span:first-child {
   display: block;
   margin-right: 180px;
+
+  @media (max-width: @middle-width) {
+    margin-right: 10px;
+  }
 }

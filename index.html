@@ -14,25 +14,29 @@
   <header class="header">
     <div class="header__wrapper wrapper">
       <h1 class="header__logo">Brooklyn Public Library</h1>
-      <nav class="header__navigation">
-        <ul class="header__list">
-          <li class="header__item">
-            <a class="header__link" href="#about">About</a>
-          </li>
-          <li class="header__item">
-            <a class="header__link" href="#favorites">Favorites</a>
-          </li>
-          <li class="header__item">
-            <a class="header__link" href="#shop">Coffee shop</a>
-          </li>
-          <li class="header__item">
-            <a class="header__link" href="#contacts">Contacts</a>
-          </li>
-          <li class="header__item">
-            <a class="header__link" href="#library-card">Library Card</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="header__nav-wrapper">
+        <nav class="header__navigation navigation">
+          <ul class="navigation__list">
+            <li class="navigation__item">
+              <a class="navigation__link" href="#about">About</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#favorites">Favorites</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#shop">Coffee shop</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#contacts">Contacts</a>
+            </li>
+            <li class="navigation__item">
+              <a class="navigation__link" href="#library-card">Library Card</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="header__button header__button--profile" type="button"></button>
+        <button class="header__button header__button--navigation" type="button"></button>
+      </div>
     </div>
   </header>
   <main class="main">
@@ -73,6 +77,16 @@
           <li class="about__pagination-item">
             <button class="about__pagination-button">
               <span class="visually-hidden">3 photo</span>
+            </button>
+          </li>
+          <li class="about__pagination-item">
+            <button class="about__pagination-button">
+              <span class="visually-hidden">4 photo</span>
+            </button>
+          </li>
+          <li class="about__pagination-item">
+            <button class="about__pagination-button">
+              <span class="visually-hidden">5 photo</span>
             </button>
           </li>
         </ul>
@@ -249,74 +263,74 @@
         <h2 class="shop__title title">Coffee shop</h2>
         <p class="shop__text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation.<br>
           You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
-          <div class="shop__menu menu">
-            <table class="menu__table">
-              <thead>
-                <tr>
-                  <th class="menu__table-header" colspan="2">Coffee & Tea</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="menu__good">Cold Brew Coffee</td>
-                  <td class="menu__price">$3</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">French Press Pot</td>
-                  <td class="menu__price">$5</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Espresso</td>
-                  <td class="menu__price">$2</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Cappuccino</td>
-                  <td class="menu__price">$4</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Hot tea</td>
-                  <td class="menu__price">$2</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Cold tea</td>
-                  <td class="menu__price">$2</td>
-                </tr>
-              </tbody>
-            </table>
-            <table class="menu__table">
-              <thead>
-                <tr>
-                  <th class="menu__table-header" colspan="2">Desserts & Cakes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="menu__good">Forest Gateau</td>
-                  <td class="menu__price">$16</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Blue Moon</td>
-                  <td class="menu__price">$16</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Truffle Cake</td>
-                  <td class="menu__price">$15</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Chocolate Cake</td>
-                  <td class="menu__price">$18</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Poet’s Dream Cake</td>
-                  <td class="menu__price">$16</td>
-                </tr>
-                <tr>
-                  <td class="menu__good">Pineapple Cake</td>
-                  <td class="menu__price">$14</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div class="shop__menu menu">
+          <table class="menu__table">
+            <thead>
+              <tr>
+                <th class="menu__table-header" colspan="2">Coffee & Tea</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="menu__good">Cold Brew Coffee</td>
+                <td class="menu__price">$3</td>
+              </tr>
+              <tr>
+                <td class="menu__good">French Press Pot</td>
+                <td class="menu__price">$5</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Espresso</td>
+                <td class="menu__price">$2</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Cappuccino</td>
+                <td class="menu__price">$4</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Hot tea</td>
+                <td class="menu__price">$2</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Cold tea</td>
+                <td class="menu__price">$2</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="menu__table">
+            <thead>
+              <tr>
+                <th class="menu__table-header" colspan="2">Desserts & Cakes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="menu__good">Forest Gateau</td>
+                <td class="menu__price">$16</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Blue Moon</td>
+                <td class="menu__price">$16</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Truffle Cake</td>
+                <td class="menu__price">$15</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Chocolate Cake</td>
+                <td class="menu__price">$18</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Poet’s Dream Cake</td>
+                <td class="menu__price">$16</td>
+              </tr>
+              <tr>
+                <td class="menu__good">Pineapple Cake</td>
+                <td class="menu__price">$14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
     <section class="contacts" id="contacts">
@@ -418,5 +432,34 @@
       </div>
     </div>
   </footer>
+
+  <template id="adaptive-menu">
+    <div class="adaptive-menu hidden initial">
+      <div class="adaptive-menu__wrapper--header-button">
+        <button class="header__button header__button--profile" type="button"></button>
+        <button class="adaptive-menu__button" type="button"></button>
+      </div>
+      <nav class="adaptive-menu__navigation navigation">
+        <ul class="navigation__list navigation__list--adaptive">
+          <li class="navigation__item navigation__item--active">
+            <a class="navigation__link navigation__link--active" href="#about">About</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#favorites">Favorites</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#shop">Coffee shop</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#contacts">Contacts</a>
+          </li>
+          <li class="navigation__item">
+            <a class="navigation__link" href="#library-card">Library Card</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </template>
+  <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>

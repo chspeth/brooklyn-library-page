@@ -1,6 +1,11 @@
 .get-card {
   text-align: right;
   width: 460px;
+
+  @media (max-width: @middle-width) {
+    text-align: center;
+    width: 82.4%;
+  }
 }
 
 .get-card__subtitle {
@@ -10,15 +15,31 @@
   line-height: normal; 
   margin: 0;
   margin-bottom: 35px;
+
+  @media (max-width: @middle-width) {
+    margin-bottom: 40px;
+  }
 }
 
 .get-card__text {
   letter-spacing: 0.4px; 
   margin: 0;
   margin-bottom: 28px;
+
+  @media (max-width: @middle-width) {
+    margin-bottom: 32px;
+  }
 }
 
 .get-card__button {
   display: inline-block;
   margin-left: 12px;
+
+  @media (max-width: @middle-width) {
+    margin-right: 7px;
+
+    &:last-of-type {
+      margin-left: 5px;
+    }
+  }
 }
