@@ -6,59 +6,37 @@
   margin-bottom: 20px;
 }
 
+.about__slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
 .about__list {
   display: flex;
   flex-direction: row;
+  column-gap: 25px;
   justify-content: space-between;
   margin-bottom: 35px;
+  transition: .2s;
 
   @media (max-width: @tablet-width) {
-    width: 84.34%;
+    // width: 84.34%;
+    width: 100%;
+    column-gap: 0;
     margin: 0 auto;
     margin-bottom: 20px;
     position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 24px;
-      height: 24px; 
-      left: 0;
-      top: calc(50% + 9px);
-      background-image: url("../img/icons/about-arrow-icon.svg");
-      background-position: center;
-      background-size: 24px 24px;
-      background-repeat: no-repeat;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 24px;
-      height: 24px; 
-      right: 0;
-      top: calc(50% + 9px);
-      background-image: url("../img/icons/about-arrow-icon.svg");
-      background-position: center;
-      background-size: 24px 24px;
-      background-repeat: no-repeat;
-      transform: rotate(180deg);
-    }
   }
 }
 
 .about__item {
-  width: 32.14%;
+  // min-width: 32.14%;
+  max-width: 450px;
 
   @media (max-width: @tablet-width) {
     width: 73.29%;
     margin: 0 auto;
-
-    &:not(:first-child) {
-      display: none;
-    }
   }
 }
 
@@ -66,6 +44,36 @@
   width: 100%;
   max-width: 450px;
   height: auto;
+  margin: 0 auto;
+}
+
+.about__button-wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  width: 84%;
+  top: 50%;
+  left: 8%;
+}
+
+.about__button {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background-color: transparent;
+  background-image: url("../img/icons/about-arrow-icon.svg");
+  background-position: center;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  &--next {
+    transform: rotate(180deg);
+  }
+
+  @media (min-width: calc(@tablet-width + 1px)) {
+    display: none;
+  }
 }
 
 .about__pagination {
@@ -102,7 +110,6 @@
   background-color: @title-text-color;
   cursor: pointer;
 }
-
 
 .about__pagination-item--current .about__pagination-button {
   background-color: @accent-color;

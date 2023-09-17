@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 40px 260px;
   margin-bottom: 40px;
+  animation-duration: 8s;
   
   &--spring,
   &--summer,
@@ -93,4 +94,22 @@
   width: 200px;
   height: 300px;
   object-fit: cover;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
 }

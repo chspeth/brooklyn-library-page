@@ -1,0 +1,85 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 7;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal.shown {
+  display: block;
+}
+
+.modal__wrapper {
+  position: relative;
+  top: calc(50% - 180px);
+  margin: auto;
+  box-sizing: border-box;
+  width: 250px;
+  height: 382px; 
+  padding: 20px 25px;
+  background-color: @base-bg-color;
+  color: @base-text-color;
+}
+
+.modal__close-button {
+  top: 12px;
+  right: 13px;
+}
+
+.modal__title {
+  font-family: "Forum", cursive;
+  text-transform: uppercase; 
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+  line-height: 20px; 
+  letter-spacing: 0.4px; 
+}
+
+.modal__input-title {
+  font-size: 15px; 
+  line-height: 20px; 
+  letter-spacing: 0.3px; 
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.modal__input {
+  display: block;
+  box-sizing: border-box;
+  width: 200px;
+  height: 20px; 
+  border: 1px solid @accent-color; 
+  margin-bottom: 10px;
+}
+
+.modal__button {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal__text {
+  font-size: 10px; 
+  line-height: normal; 
+  letter-spacing: normal; 
+  margin: 0;
+}
+
+.modal__additional-button {
+  border: none;
+  background-color: transparent;
+  letter-spacing: 1px;
+  text-decoration: underline; 
+  font-size: 10px; 
+  font-weight: 700; 
+  cursor: pointer;
+  margin-left: 5px;
+}

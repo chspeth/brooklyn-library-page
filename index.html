@@ -34,7 +34,19 @@
             </li>
           </ul>
         </nav>
-        <button class="header__button header__button--profile" type="button"></button>
+        <div class="header__profile-menu-wrapper">
+          <button class="header__button header__button--profile header__button--profile-nonadaptive" type="button"></button>
+          <div class="header__profile-dropdown-menu dropdown-menu dropdown-menu--unauthorized hidden">
+            <p class="dropdown-menu__title">Profile</p>
+            <button class="dropdown-menu__button">Log In</button>
+            <button class="dropdown-menu__button registration-button">Register</button>
+          </div>
+          <div class="header__profile-dropdown-menu dropdown-menu dropdown-menu--authorized hidden">
+            <p class="dropdown-menu__title">Profile</p>
+            <button class="dropdown-menu__button profile-button">My profile</button>
+            <button class="dropdown-menu__button logout-button">Log Out</button>
+          </div>
+        </div>
         <button class="header__button header__button--navigation" type="button"></button>
       </div>
     </div>
@@ -52,17 +64,29 @@
       <div class="about__wrapper wrapper">
         <h2 class="about__title title">About</h2>
         <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-        <ul class="about__list">
-          <li class="about__item">
-            <img class="about__image" src="./assets/img/about/image-1.jpg" alt="A girl in a library" width="450" height="560">
-          </li>
-          <li class="about__item">
-            <img class="about__image" src="./assets/img/about/image-2.jpg" alt="Busts in a library" width="450" height="560">
-          </li>
-          <li class="about__item">
-            <img class="about__image" src="./assets/img/about/image-3.jpg" alt="Shelves with books in a library" width="450" height="560">
-          </li>
-        </ul>
+        <div class="about__slider">
+          <ul class="about__list">
+            <li class="about__item">
+              <img class="about__image" src="./assets/img/about/image-1.jpg" alt="A girl in a library" width="450" height="560">
+            </li>
+            <li class="about__item">
+              <img class="about__image" src="./assets/img/about/image-2.jpg" alt="Busts in a library" width="450" height="560">
+            </li>
+            <li class="about__item">
+              <img class="about__image" src="./assets/img/about/image-3.jpg" alt="Shelves with books in a library" width="450" height="560">
+            </li>
+            <li class="about__item">
+              <img class="about__image" src="./assets/img/about/image-4.jpg" alt="Wooden ladder in a library" width="450" height="560">
+            </li>
+            <li class="about__item">
+              <img class="about__image" src="./assets/img/about/image-5.jpg" alt="Pediment of a library bulding" width="450" height="560">
+            </li>
+          </ul>
+          <div class="about__button-wrapper">
+            <button class="about__button about__button--prev" type="button"></button>
+            <button class="about__button about__button--next" type="button"></button>
+          </div>
+        </div>
         <ul class="about__pagination">
           <li class="about__pagination-item about__pagination-item--current">
             <button class="about__pagination-button">
@@ -95,28 +119,30 @@
     <section class="favorites" id="favorites">
       <div class="favorites__wrapper wrapper">
         <h2 class="favorites__title title">Favorites</h2>
-        <p class="favorites__text">Pick favorites of season</p>
-        <div class="favorites__choice-box">
-          <label class="favorites__item" for="winter">
-            <input class="visually-hidden" type="radio" name="season" value="winter" id="winter" checked>
-            <span class="favorites__control-mark"></span>
-            <span class="favorites__control-label">Winter</span>
-          </label>
-          <label class="favorites__item" for="spring">
-            <input class="visually-hidden" type="radio" name="season" value="spring" id="spring">
-            <span class="favorites__control-mark"></span>
-            <span class="favorites__control-label">Spring</span>
-          </label>
-          <label class="favorites__item" for="summer">
-            <input class="visually-hidden" type="radio" name="season" value="summer" id="summer">
-            <span class="favorites__control-mark"></span>
-            <span class="favorites__control-label">Summer</span>
-          </label>
-          <label class="favorites__item" for="autumn">
-            <input class="visually-hidden" type="radio" name="season" value="autumn" id="autumn">
-            <span class="favorites__control-mark"></span>
-            <span class="favorites__control-label">Autumn</span>
-          </label>
+        <div class="favorites__navbar">
+          <p class="favorites__text">Pick favorites of season</p>
+          <div class="favorites__choice-box">
+            <label class="favorites__item" for="winter">
+              <input class="visually-hidden favorites__input" type="radio" name="season" value="winter" id="winter" checked>
+              <span class="favorites__control-mark"></span>
+              <span class="favorites__control-label">Winter</span>
+            </label>
+            <label class="favorites__item" for="spring">
+              <input class="visually-hidden favorites__input" type="radio" name="season" value="spring" id="spring">
+              <span class="favorites__control-mark"></span>
+              <span class="favorites__control-label">Spring</span>
+            </label>
+            <label class="favorites__item" for="summer">
+              <input class="visually-hidden favorites__input" type="radio" name="season" value="summer" id="summer">
+              <span class="favorites__control-mark"></span>
+              <span class="favorites__control-label">Summer</span>
+            </label>
+            <label class="favorites__item" for="autumn">
+              <input class="visually-hidden favorites__input" type="radio" name="season" value="autumn" id="autumn">
+              <span class="favorites__control-mark"></span>
+              <span class="favorites__control-label">Autumn</span>
+            </label>
+          </div>
         </div>
         <div class="favorites__seasons seasons">
           <ul class="seasons__list seasons__list--winter">
@@ -371,7 +397,7 @@
           <div class="library-card__get-card get-card">
             <p class="get-card__subtitle">Get a reader card</p>
             <p class="get-card__text">You will be able to see a reader card after logging into account or you can register a new account</p>
-            <button class="get-card__button button">Sign Up</button>
+            <button class="get-card__button button registration-button">Sign Up</button>
             <button class="get-card__button button">Log in</button>
           </div>
         </div>
@@ -436,7 +462,7 @@
   <template id="adaptive-menu">
     <div class="adaptive-menu hidden initial">
       <div class="adaptive-menu__wrapper--header-button">
-        <button class="header__button header__button--profile" type="button"></button>
+        <button class="header__button header__button--profile header__button--profile-adaptive" type="button"></button>
         <button class="adaptive-menu__button" type="button"></button>
       </div>
       <nav class="adaptive-menu__navigation navigation">
@@ -458,6 +484,76 @@
           </li>
         </ul>
       </nav>
+    </div>
+  </template>
+
+  <template id="modal-registration">
+    <div class="modal hidden">
+      <div class="modal__wrapper">
+        <button class="modal__close-button close-button" type="button"></button>
+        <p class="modal__title">Register</p>
+        <form id="registration-form" action="" method="post">
+          <label for="first-name">
+            <p class="modal__input-title">First name</p>
+            <input class="modal__input" type="text" id="first-name" name="first-name" required>
+          </label>
+          <label for="last-name">
+            <p class="modal__input-title">Last name</p>
+            <input class="modal__input" type="text" id="last-name" name="last-name" required>
+          </label>
+          <label for="email">
+            <p class="modal__input-title">E-mail</p>
+            <input class="modal__input" type="email" id="email" name="email" required>
+          </label>
+          <label for="password-registration">
+            <p class="modal__input-title">Password</p>
+            <input class="modal__input" type="password" id="password-registration" name="password" minlength="8" required>
+          </label>
+          <button class="modal__button button" type="submit">Sign Up</button>
+          <p class="modal__text">Already have an account? 
+            <button class="modal__additional-button" type="button">Login</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </template>
+
+  <template id="profile">
+    <div class="modal hidden">
+      <div class="profile__wrapper">
+        <button class="profile__close-button close-button" type="button"></button>
+        <div class="profile__left">
+          <div class="profile__name-letters">JD</div>
+          <p class="profile__name">John Doe</p>
+        </div>
+        <div class="profile__right">
+          <p class="profile__title">My profile</p>
+          <table class="profile__table">
+            <tbody>
+              <tr>
+                <th>Visits</th>
+                <th>Bonuses</th>
+                <th>Books</th>
+              </tr>
+              <tr>
+                <td class="profile__visits">0</td>
+                <td>1240</td>
+                <td>2</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="profile__subtitle">Rented books</p>
+          <ul class="profile__list">
+            <li class="profile__item">The Last Queen, Clive Irving</li>
+            <li class="profile__item">Dominicana, Angie Cruz</li>
+          </ul>
+          <p class="profile__card-details">
+            <span>Card number</span>
+            <span class="profile__card-number">F00234030</span>
+            <button class="profile__copy-button" type="button" title="Copy to clipboard"></button>
+          </p>
+        </div>
+      </div>
     </div>
   </template>
   <script src="assets/js/main.js" type="module"></script>
