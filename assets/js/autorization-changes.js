@@ -9,6 +9,19 @@ const idNumbers = [];
 const profileButtons = document.querySelectorAll('.header__button--profile');
 const LS = localStorage;
 
+const cardSection = document.getElementById('library-card');
+const cardTable = document.querySelector('.library-card__table');
+const checkButton = cardSection.querySelector('.library-card__button');
+const getSectionTitle = cardSection.querySelector('.get-card__subtitle');
+const getSectionText = cardSection.querySelector('.get-card__text');
+const getSectionButtons = cardSection.querySelectorAll('.get-card__button');
+const getSectionProfileButton = cardSection.querySelector('.get-card__button--profile');
+
+function toggleClass (el) {
+  el.classList.toggle('hidden');
+  el.classList.toggle('shown');
+}
+
 function getRandomHexString () {
   let result = [];
   let hexRef = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
@@ -90,6 +103,12 @@ function setTitle () {
   })
 }
 
+function removeTitle () {
+  profileButtons.forEach((btn) => {
+    btn.removeAttribute('title');
+  })
+}
+
 function setProfileTitle () {
   const idOfActiveUser = findIdOfActiveUser();
 
@@ -109,9 +128,45 @@ function setProfileNameAndNumber () {
 }
 
 function countVisits () {
-  let number = +profileVisits.textContent;
-  number++;
-  profileVisits.textContent = number;
+  const idOfActiveUser = findIdOfActiveUser();
+  users[idOfActiveUser.toString()].visits++;
+  profileVisits.forEach((el) => {
+    // let number = +el.textContent;
+    // number++;
+    // el.textContent = number;
+    
+    el.textContent = users[idOfActiveUser.toString()].visits;
+    
+  })
+  LS.setItem('users', JSON.stringify(users));
+}
+
+function changeCardSection () {
+  toggleClass(checkButton);
+  toggleClass(cardTable);
+  
+  getSectionTitle.textContent = 'Visit your profile';
+  getSectionText.textContent = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+  
+  for (let i = 0; i < 2; i++) {
+    getSectionButtons[i].style.display = 'none';
+  }
+  getSectionProfileButton.style.display = 'inline-block';
+}
+
+function changeCardSectionBack () {
+  if (checkButton.classList.contains('hidden') && cardTable.classList.contains('shown')) {
+    toggleClass(checkButton);
+    toggleClass(cardTable);
+  }
+
+  getSectionTitle.textContent = 'Get a reader card';
+  getSectionText.textContent = 'You will be able to see a reader card after logging into account or you can register a new account';
+  
+  for (let i = 0; i < 2; i++) {
+    getSectionButtons[i].style.display = 'inline-block';
+  }
+  getSectionProfileButton.style.display = 'none';
 }
 
 function changePageAfterAutorization () {
@@ -121,8 +176,13 @@ function changePageAfterAutorization () {
     setProfileTitle();
     setProfileNameAndNumber();
     countVisits();
+    changeCardSection();
   } else {
     changeAvatarNoname();
+    dropdownMenuAuthorized.classList.remove('shown');
+    dropdownMenuAuthorized.classList.add('hidden');
+    removeTitle();
+    changeCardSectionBack();
   }
 }
 
@@ -135,7 +195,6 @@ logoutButton.addEventListener('click', () => {
   users[idOfActiveUser.toString()].isActive = false;
   LS.setItem('users', JSON.stringify(users));
   changePageAfterAutorization();
-  // console.log(findActiveUser())
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable};

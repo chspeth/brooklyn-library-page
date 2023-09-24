@@ -70,6 +70,7 @@
   line-height: 50px; 
   letter-spacing: 0.6px; 
   font-family: "Forum", cursive;
+  color: @accent-color;
 }
 
 .library-card__input:not(:last-of-type) {
@@ -107,8 +108,39 @@
   font-size: 20px; 
 }
 
+.library-card__button.shown {
+  display: block;
+}
+
+.library-card__button.hidden {
+  display: none;
+}
+
 .library-card__find-card {
   @media (max-width: @middle-width) {
     margin-bottom: 21px;
+  }
+}
+
+.library-card__table {
+  border-spacing: 33px 20px;
+  margin: 0 auto;
+  margin-top: -25px;
+}
+
+.library-card__table.shown {
+  display: table;
+}
+
+.library-card__table.hidden {
+  display: none;
+}
+
+.library-card__table th {
+  font-size: 10px; 
+  letter-spacing: 0.2px; 
+
+  &::after {
+    top: 20px;
   }
 }

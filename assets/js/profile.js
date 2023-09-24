@@ -1,6 +1,6 @@
 const profileWindowContainer = document.querySelector('#profile').content.querySelector('.modal');
 const profileWindow = profileWindowContainer.cloneNode(true);
-const profileButton = document.querySelector('.profile-button');
+const profileButtons = document.querySelectorAll('.profile-button');
 const closeButton = profileWindow.querySelector('.profile__close-button');
 const profileModal = profileWindow.querySelector('.profile__wrapper');
 document.body.append(profileWindow);
@@ -9,15 +9,17 @@ const profileNameLetters = profileWindow.querySelector('.profile__name-letters')
 const profileName = profileWindow.querySelector('.profile__name');
 const profileCardNumber = profileWindow.querySelector('.profile__card-number');
 const profileCopyButton = profileWindow.querySelector('.profile__copy-button');
-const profileVisits = profileWindow.querySelector('.profile__visits');
+const profileVisits = document.querySelectorAll('.profile-table__visits');
 
 function toggleProfileClass () {
   profileWindow.classList.toggle('hidden');
   profileWindow.classList.toggle('shown');
 }
 
-profileButton.addEventListener('click', () => {
-  toggleProfileClass();
+profileButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    toggleProfileClass();
+  })
 })
 
 closeButton.addEventListener('click', () => {

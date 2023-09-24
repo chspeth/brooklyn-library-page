@@ -4,7 +4,6 @@ import {findActiveUser} from './autorization-changes.js';
 const dropdownMenu = document.querySelectorAll('.dropdown-menu');
 const dropdownMenuUnauthorized = document.querySelector('.dropdown-menu--unauthorized');
 const dropdownMenuAuthorized = document.querySelector('.dropdown-menu--authorized');
-const cardNumberTitle = dropdownMenuAuthorized.querySelector('.dropdown-menu__title');
 
 const profileButtonNonadaptive = document.querySelector('.header__button--profile-nonadaptive');
 const profileButtonAdaptive = document.querySelector('.header__button--profile-adaptive');

@@ -724,6 +724,7 @@ ul {
   line-height: 50px;
   letter-spacing: 0.6px;
   font-family: "Forum", cursive;
+  color: #bb945f;
 }
 .library-card__input:not(:last-of-type) {
   margin-bottom: 25px;
@@ -753,10 +754,34 @@ ul {
   margin: 0 auto;
   font-size: 20px;
 }
+.library-card__button.shown {
+  display: block;
+}
+.library-card__button.hidden {
+  display: none;
+}
 @media (max-width: 1024px) {
   .library-card__find-card {
     margin-bottom: 21px;
   }
+}
+.library-card__table {
+  border-spacing: 33px 20px;
+  margin: 0 auto;
+  margin-top: -25px;
+}
+.library-card__table.shown {
+  display: table;
+}
+.library-card__table.hidden {
+  display: none;
+}
+.library-card__table th {
+  font-size: 10px;
+  letter-spacing: 0.2px;
+}
+.library-card__table th::after {
+  top: 20px;
 }
 .get-card {
   text-align: right;
@@ -794,6 +819,9 @@ ul {
 .get-card__button {
   display: inline-block;
   margin-left: 12px;
+}
+.get-card__button--profile {
+  display: none;
 }
 @media (max-width: 1024px) {
   .get-card__button {
@@ -990,7 +1018,6 @@ ul {
   margin: auto;
   box-sizing: border-box;
   width: 250px;
-  height: 382px;
   padding: 20px 25px;
   background-color: #ffffff;
   color: #000000;
@@ -1103,41 +1130,14 @@ ul {
   font-size: 40px;
 }
 .profile__table {
-  border-collapse: separate;
   border-spacing: 19px 39px;
   margin-left: -20px;
 }
-.profile__table th,
-.profile__table td {
-  text-align: center;
-  font-weight: 400;
-  line-height: 20px;
-}
 .profile__table th {
-  position: relative;
-  text-transform: capitalize;
   letter-spacing: 0.4px;
 }
 .profile__table th::after {
-  position: absolute;
   top: 30px;
-  left: calc(50% - 10px);
-  content: '';
-  width: 20px;
-  height: 21px;
-}
-.profile__table th:first-child::after {
-  background-image: url('../img/icons/modal-visits.svg');
-}
-.profile__table th:nth-child(2)::after {
-  background-image: url('../img/icons/modal-bonuses.svg');
-}
-.profile__table th:last-child::after {
-  background-image: url('../img/icons/modal-book.svg');
-}
-.profile__table td {
-  letter-spacing: 0.2px;
-  font-size: 10px;
 }
 .profile__subtitle {
   margin: 0;
@@ -1183,6 +1183,39 @@ ul {
 .profile__close-button {
   top: 22px;
   right: 23px;
+}
+.profile-table {
+  border-collapse: separate;
+}
+.profile-table th,
+.profile-table td {
+  text-align: center;
+  font-weight: 400;
+  line-height: 20px;
+}
+.profile-table th {
+  position: relative;
+  text-transform: capitalize;
+}
+.profile-table th::after {
+  position: absolute;
+  left: calc(50% - 10px);
+  content: '';
+  width: 20px;
+  height: 21px;
+}
+.profile-table th:first-child::after {
+  background-image: url('../img/icons/modal-visits.svg');
+}
+.profile-table th:nth-child(2)::after {
+  background-image: url('../img/icons/modal-bonuses.svg');
+}
+.profile-table th:last-child::after {
+  background-image: url('../img/icons/modal-book.svg');
+}
+.profile-table td {
+  letter-spacing: 0.2px;
+  font-size: 10px;
 }
 .footer {
   background-color: #0c0c0e;
