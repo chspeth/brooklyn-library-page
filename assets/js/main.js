@@ -6,3 +6,5 @@ import './dropdown-menu.js';
 import './login-registration.js';
 import './form.js';
 import './profile.js';
+import './favorites-books.js';
+import './buy-card.js';

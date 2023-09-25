@@ -130,14 +130,11 @@ function setProfileNameAndNumber () {
 function countVisits () {
   const idOfActiveUser = findIdOfActiveUser();
   users[idOfActiveUser.toString()].visits++;
+
   profileVisits.forEach((el) => {
-    // let number = +el.textContent;
-    // number++;
-    // el.textContent = number;
-    
     el.textContent = users[idOfActiveUser.toString()].visits;
-    
   })
+
   LS.setItem('users', JSON.stringify(users));
 }
 
@@ -197,4 +194,4 @@ logoutButton.addEventListener('click', () => {
   changePageAfterAutorization();
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser};

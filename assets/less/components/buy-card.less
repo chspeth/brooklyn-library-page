@@ -1,0 +1,123 @@
+.buy-card__wrapper {
+  position: relative;
+  top: calc(50% - 260px);
+  margin: auto;
+  box-sizing: border-box;
+  width: 640px;
+  height: 540px; 
+}
+
+.buy-card__header {
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 10px;
+  height: 60px; 
+  background-color: @header-bg-color;
+  color: @header-text-color;
+}
+
+.buy-card__title {
+  font-family: "Forum", cursive;
+  font-size: 40px; 
+  letter-spacing: 0.8px; 
+  text-align: center;
+  text-transform: uppercase; 
+  margin: 0;
+}
+
+.buy-card__close-button {
+  top: 25px;
+  right: 19px;
+
+  &::after,
+  &::before {
+    background-color: @base-bg-color;
+  }
+}
+
+.buy-card__inner-wrapper {
+  box-sizing: border-box;
+  padding: 30px 35px 40px 35px;
+  background-color: @base-bg-color;
+  color: @base-text-color;
+  display: flex;
+  flex-direction: row;
+  font-size: 15px; 
+  line-height: 20px; 
+}
+
+.buy-card__form {
+  width: 200px; 
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+
+.buy-card__input-title {
+  margin: 0;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px; 
+}
+
+.buy-card__input {
+  width: 100%;
+  height: 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid @accent-color; 
+
+  &--short {
+    display: inline-block;
+    width: 45px; 
+  }
+}
+
+.buy-card__flex-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+
+  &--price {
+    gap: 25px;
+    align-items: flex-end;
+  }
+}
+
+#buy-cvc {
+  margin-bottom: 20px;
+}
+
+.buy-card__right {
+  flex-shrink: 1;
+}
+
+.buy-card__text {
+  margin: 0;
+  color: @additional-color;
+}
+
+.buy-card__button {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.buy-card__price {
+  font-size: 20px; 
+  font-weight: 700;
+}
+
+/*Next code removes input's arrows */
+
+/* Chrome, Safari, Edge, Opera */
+.buy-card__wrapper input::-webkit-outer-spin-button,
+.buy-card__wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.buy-card__wrapper input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* The end of code for arrows */

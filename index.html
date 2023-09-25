@@ -176,7 +176,7 @@
               <p class="seasons__book-autor">By Clive Irving</p>
               <p class="seasons__book-summary">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
               <img class="seasons__image" src="./assets/img/books/winter/TheLastQueen.jpg" alt="Cover of 'The Last Queen' by Clive Irving" width="200" height="300">
-              <button class="seasons__button button button--disabled" disabled>Own</button>
+              <button class="seasons__button button">Buy</button>
             </li>
           </ul>
           <ul class="seasons__list seasons__list--spring">
@@ -210,7 +210,7 @@
               <p class="seasons__book-autor">By Angie Cruz</p>
               <p class="seasons__book-summary">A fascinating story of a teenage girl who marries a man twice her age with the promise to bring her to America. Her marriage is an opportunity for her family to eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
               <img class="seasons__image" src="./assets/img/books/spring/Dominicana.jpg" alt="Cover of 'Dominicana' by Angie Cruz" width="200" height="300">
-              <button class="seasons__button button button--disabled" disabled>Own</button>
+              <button class="seasons__button button">Buy</button>
             </li>
           </ul>
           <ul class="seasons__list seasons__list--summer">
@@ -594,6 +594,56 @@
       </div>
     </div>
   </template>
+
+  <template id="buy-card">
+    <div class="modal hidden">
+      <div class="buy-card__wrapper">
+        <header class="buy-card__header">
+          <p class="buy-card__title">Buy a library card</p>
+          <button class="buy-card__close-button close-button" type="button"></button>
+        </header>
+        <div class="buy-card__inner-wrapper">
+          <form class="buy-card__form" action="">
+            <label for="buy-card-number">
+              <p class="buy-card__input-title">Bank card number</p>
+              <input class="buy-card__input" type="number" name="buy-card-number" id="buy-card-number" minlength="16" maxlength="16" required>
+            </label>
+            <label for="buy-expiration-month">
+              <p class="buy-card__input-title">Expiration code</p>
+              <div class="buy-card__flex-wrap">
+                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-month" id="buy-expiration-month" minlength="2" maxlength="2" required>
+                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-year" id="buy-expiration-year" minlength="2" maxlength="2" required>
+              </div>
+            </label>
+            <label for="buy-cvc">
+              <p class="buy-card__input-title">CVC</p>
+              <input class="buy-card__input buy-card__input--short" type="number" name="buy-cvc" id="buy-cvc" minlength="3" maxlength="3" required>
+            </label>
+            <label for="buy-name">
+              <p class="buy-card__input-title">Cardholder name</p>
+              <input class="buy-card__input" type="text" name="buy-name" id="buy-name" required>
+            </label>
+            <label for="buy-postal-code">
+              <p class="buy-card__input-title">Postal code</p>
+              <input class="buy-card__input" type="number" name="buy-postal-code" id="buy-postal-code" required>
+            </label>
+            <label for="buy-city">
+              <p class="buy-card__input-title">City / Town</p>
+              <input class="buy-card__input" type="text" name="buy-city" id="buy-city" required>
+            </label>
+            <div class="buy-card__flex-wrap buy-card__flex-wrap--price">
+              <button class="buy-card__button button" type="submit">Buy</button>
+              <span class="buy-card__price">$ 25.00</span>
+            </div>
+          </form>
+          <div class="buy-card__right">
+            <p class="buy-card__text">If you live, work, attend school, <br>or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>
