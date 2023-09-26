@@ -10,6 +10,8 @@ const profileName = profileWindow.querySelector('.profile__name');
 const profileCardNumber = profileWindow.querySelector('.profile__card-number');
 const profileCopyButton = profileWindow.querySelector('.profile__copy-button');
 const profileVisits = document.querySelectorAll('.profile-table__visits');
+const profileBooks = document.querySelectorAll('.profile-table__books');
+const profileList = profileWindow.querySelector('.profile__list');
 
 function toggleProfileClass () {
   profileWindow.classList.toggle('hidden');
@@ -36,4 +38,4 @@ profileCopyButton.addEventListener('click', () => {
   navigator.clipboard.writeText(profileCardNumber.innerHTML)
 })
 
-export {profileNameLetters, profileName, profileCardNumber, profileVisits};
+export {profileNameLetters, profileName, profileCardNumber, profileVisits, profileBooks, profileList};

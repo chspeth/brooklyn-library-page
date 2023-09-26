@@ -1,4 +1,4 @@
-import {profileNameLetters, profileName, profileCardNumber, profileVisits} from './profile.js';
+import {profileNameLetters, profileName, profileCardNumber, profileVisits, profileBooks} from './profile.js';
 
 const dropdownMenuAuthorized = document.querySelector('.dropdown-menu--authorized');
 const cardNumberTitle = dropdownMenuAuthorized.querySelector('.dropdown-menu__title');
@@ -138,6 +138,25 @@ function countVisits () {
   LS.setItem('users', JSON.stringify(users));
 }
 
+function setBooksNumber () {
+  const activeUser = findActiveUser();
+
+  profileBooks.forEach((el) => {
+    el.textContent = activeUser.books;
+  })
+}
+
+function countBooks () {
+  const idOfActiveUser = findIdOfActiveUser();
+  users[idOfActiveUser.toString()].books++;
+
+  profileBooks.forEach((el) => {
+    el.textContent = users[idOfActiveUser.toString()].books;
+  })
+
+  LS.setItem('users', JSON.stringify(users));
+}
+
 function changeCardSection () {
   toggleClass(checkButton);
   toggleClass(cardTable);
@@ -174,6 +193,7 @@ function changePageAfterAutorization () {
     setProfileNameAndNumber();
     countVisits();
     changeCardSection();
+    setBooksNumber();
   } else {
     changeAvatarNoname();
     dropdownMenuAuthorized.classList.remove('shown');
@@ -194,4 +214,4 @@ logoutButton.addEventListener('click', () => {
   changePageAfterAutorization();
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, countBooks};

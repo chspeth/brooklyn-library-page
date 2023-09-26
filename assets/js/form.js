@@ -12,6 +12,7 @@ formRegistrarion.addEventListener('submit', (evt) => {
   formData.isActive = true;
   formData.hasLibraryCard = false;
   formData.visits = 0;
+  formData.books = 0;
   
   for (let input of inputList) {
     formData[input.name] = input.value;
