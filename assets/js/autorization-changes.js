@@ -1,4 +1,4 @@
-import {profileNameLetters, profileName, profileCardNumber, profileVisits, profileBooks} from './profile.js';
+import {profileNameLetters, profileName, profileCardNumber, profileVisits, profileBooks, profileList} from './profile.js';
 
 const dropdownMenuAuthorized = document.querySelector('.dropdown-menu--authorized');
 const cardNumberTitle = dropdownMenuAuthorized.querySelector('.dropdown-menu__title');
@@ -139,22 +139,40 @@ function countVisits () {
 }
 
 function setBooksNumber () {
-  const activeUser = findActiveUser();
+  const idOfActiveUser = findIdOfActiveUser();
 
   profileBooks.forEach((el) => {
-    el.textContent = activeUser.books;
+    el.textContent = users[idOfActiveUser.toString()].ownBooks.length;
   })
 }
 
-function countBooks () {
+// function countBooks () {
+//   const idOfActiveUser = findIdOfActiveUser();
+//   users[idOfActiveUser.toString()].books++;
+
+//   profileBooks.forEach((el) => {
+//     el.textContent = users[idOfActiveUser.toString()].ownBooks.length;
+//   })
+
+//   LS.setItem('users', JSON.stringify(users));
+// }
+
+function setBooksToProfile () {
+  users = JSON.parse(LS.getItem('users'));
   const idOfActiveUser = findIdOfActiveUser();
-  users[idOfActiveUser.toString()].books++;
 
-  profileBooks.forEach((el) => {
-    el.textContent = users[idOfActiveUser.toString()].books;
-  })
+  const bookArr = users[idOfActiveUser.toString()].ownBooks;
 
-  LS.setItem('users', JSON.stringify(users));
+  while (profileList.firstChild) {
+    profileList.removeChild(profileList.firstChild);
+  }
+
+  for (let i = 0; i < bookArr.length; i++) {
+    const newEl = document.createElement('li');
+    newEl.textContent = bookArr[i];
+    newEl.classList.add('profile__item');
+    profileList.appendChild(newEl);
+  }
 }
 
 function changeCardSection () {
@@ -194,6 +212,7 @@ function changePageAfterAutorization () {
     countVisits();
     changeCardSection();
     setBooksNumber();
+    setBooksToProfile();
   } else {
     changeAvatarNoname();
     dropdownMenuAuthorized.classList.remove('shown');
@@ -214,4 +233,4 @@ logoutButton.addEventListener('click', () => {
   changePageAfterAutorization();
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, countBooks};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, setBooksNumber, setBooksToProfile};

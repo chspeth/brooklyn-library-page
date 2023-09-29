@@ -12,7 +12,8 @@ formRegistrarion.addEventListener('submit', (evt) => {
   formData.isActive = true;
   formData.hasLibraryCard = false;
   formData.visits = 0;
-  formData.books = 0;
+  // formData.books = 0;
+  formData.ownBooks = [];
   
   for (let input of inputList) {
     formData[input.name] = input.value;
@@ -26,8 +27,6 @@ formRegistrarion.addEventListener('submit', (evt) => {
     input.value = '';
   }
 })
-
-// LS.clear()
 
 // Login
 
@@ -62,5 +61,4 @@ formLogin.addEventListener('submit', (evt) => {
       }
     }
   }
-
 })

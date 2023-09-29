@@ -110,6 +110,8 @@ ul {
 }
 .header__profile-menu-wrapper {
   position: relative;
+  display: flex;
+  align-content: flex-start;
 }
 .header__profile-dropdown-menu {
   position: absolute;
