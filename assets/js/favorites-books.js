@@ -8,7 +8,7 @@ buyButtons.forEach((btn) => {
   btn.addEventListener('click', (evt) => {
     evt.preventDefault();
 
-    if (LS.getItem('users') && findActiveUser() === null) {
+    if ((LS.getItem('users') && findActiveUser() === null) || (!LS.getItem('users'))) {
       toggleLoginClass();
     }
 
