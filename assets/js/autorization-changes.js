@@ -128,13 +128,17 @@ function setProfileNameAndNumber () {
   profileCardNumber.textContent = idOfActiveUser;
 }
 
-function countVisits () {
+function setVisits () {
   const idOfActiveUser = findIdOfActiveUser();
-  users[idOfActiveUser.toString()].visits++;
 
   profileVisits.forEach((el) => {
     el.textContent = users[idOfActiveUser.toString()].visits;
   })
+}
+
+function countVisits () {
+  const idOfActiveUser = findIdOfActiveUser();
+  users[idOfActiveUser.toString()].visits++;
 
   LS.setItem('users', JSON.stringify(users));
 }
@@ -227,11 +231,12 @@ function changePageAfterAutorization () {
     setTitle();
     setProfileTitle();
     setProfileNameAndNumber();
-    countVisits();
+    setVisits();
     changeCardSection();
     setBooksNumber();
     setBooksToProfile();
     changeFavoritesButtons();
+    reloadFavorites();
   } else {
     changeAvatarNoname();
     dropdownMenuAuthorized.classList.remove('shown');
@@ -254,4 +259,4 @@ logoutButton.addEventListener('click', () => {
   changePageAfterAutorization();
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, setBooksNumber, setBooksToProfile, changeFavoritesButtons};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, setBooksNumber, setBooksToProfile, changeFavoritesButtons, countVisits};

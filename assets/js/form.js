@@ -1,5 +1,5 @@
 import {toggleRegistrarionClass, toggleLoginClass} from './login-registration.js';
-import {formData, setDataToLS, changePageAfterAutorization, LS, findActiveUser} from './autorization-changes.js';
+import {formData, setDataToLS, changePageAfterAutorization, LS, findActiveUser, countVisits} from './autorization-changes.js';
 
 // Registrarion
 
@@ -11,7 +11,7 @@ formRegistrarion.addEventListener('submit', (evt) => {
   
   formData.isActive = true;
   formData.hasLibraryCard = false;
-  formData.visits = 0;
+  formData.visits = 1;
   formData.ownBooks = [];
   
   for (let input of inputList) {
@@ -53,6 +53,7 @@ formLogin.addEventListener('submit', (evt) => {
       if (password && email) {
         users[key].isActive = true;
         LS.setItem('users', JSON.stringify(users));
+        countVisits();
         changePageAfterAutorization();
         toggleLoginClass();
         userEmail.value = '';
