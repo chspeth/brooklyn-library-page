@@ -90,7 +90,7 @@ function changeAvatarToLetters () {
 
 function changeAvatarNoname () {
   profileButtons.forEach((btn) => {
-    btn.style.backgroundImage = 'url("../img/icons/icon-profile.svg")';
+    btn.style.backgroundImage = 'url("./assets/img/icons/icon-profile.svg")';
     btn.style.backgroundColor = 'transparent';
     btn.textContent = '';
   })
