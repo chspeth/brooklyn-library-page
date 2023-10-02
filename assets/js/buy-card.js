@@ -6,6 +6,7 @@ const buyCardModal = buyCardWindow.querySelector('.buy-card__wrapper');
 const closeButton = buyCardWindow.querySelector('.buy-card__close-button');
 const buyCardForm = buyCardWindow.querySelector('.buy-card__form');
 document.body.append(buyCardWindow);
+const inputList = buyCardForm.getElementsByTagName('input');
 
 // Open window
 
@@ -43,6 +44,10 @@ buyCardForm.addEventListener('submit', (evt) => {
     const idOfActiveUser = findIdOfActiveUser();
     users[idOfActiveUser.toString()].hasLibraryCard = true;
     LS.setItem('users', JSON.stringify(users));
+
+    for (let input of inputList) {
+      input.value = '';
+    }
   }
 })
 
