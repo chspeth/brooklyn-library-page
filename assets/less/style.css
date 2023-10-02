@@ -1151,6 +1151,7 @@ ul {
 }
 .profile__list {
   height: 71px;
+  width: 360px;
   overflow: auto;
   scrollbar-width: thin;
   list-style-type: disc;
