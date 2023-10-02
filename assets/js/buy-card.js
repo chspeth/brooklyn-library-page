@@ -4,9 +4,10 @@ const buyCardWindowContainer = document.querySelector('#buy-card').content.query
 const buyCardWindow = buyCardWindowContainer.cloneNode(true);
 const buyCardModal = buyCardWindow.querySelector('.buy-card__wrapper');
 const closeButton = buyCardWindow.querySelector('.buy-card__close-button');
-const buyButton = buyCardWindow.querySelector('.buy-card__button');
-const inputList = buyCardWindow.getElementsByTagName('input');
+const buyCardForm = buyCardWindow.querySelector('.buy-card__form');
 document.body.append(buyCardWindow);
+
+// Open window
 
 function toggleBuyCardClass () {
   buyCardWindow.classList.toggle('hidden');
@@ -17,26 +18,31 @@ closeButton.addEventListener('click', () => {
   toggleBuyCardClass();
 })
 
-buyButton.addEventListener('click', (evt) => {
+buyCardWindow.addEventListener('click', (evt) => {
+  if (!buyCardModal.contains(evt.target)) {
+    toggleBuyCardClass();
+  }
+})
+
+// Validation
+
+const pristine = new Pristine(buyCardForm, {
+  classTo: 'buy-card__element',
+  errorTextParent: 'buy-card__element',
+  errorTextClass: 'buy-card__error-text',
+});
+
+buyCardForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
 
-  const arr = [];
-  for (let i = 0; i < inputList.length; i++) {
-    arr.push(inputList.item(i))
-  }
-  if (arr.every((el) => el.value.length > 0)) {
+  const isValid = pristine.validate();
+  if (isValid) {
     toggleBuyCardClass();
 
     const users = JSON.parse(LS.getItem('users'));
     const idOfActiveUser = findIdOfActiveUser();
     users[idOfActiveUser.toString()].hasLibraryCard = true;
     LS.setItem('users', JSON.stringify(users));
-  }
-})
-
-buyCardWindow.addEventListener('click', (evt) => {
-  if (!buyCardModal.contains(evt.target)) {
-    toggleBuyCardClass();
   }
 })
 

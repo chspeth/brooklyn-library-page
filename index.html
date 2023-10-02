@@ -604,32 +604,32 @@
         </header>
         <div class="buy-card__inner-wrapper">
           <form class="buy-card__form" action="" method="post">
-            <label for="buy-card-number">
+            <label class="buy-card__element" for="buy-card-number">
               <p class="buy-card__input-title">Bank card number</p>
-              <input class="buy-card__input" type="number" name="buy-card-number" id="buy-card-number" minlength="16" maxlength="16" required>
+              <input class="buy-card__input" type="number" name="buy-card-number" id="buy-card-number" minlength="16" maxlength="16" required data-pristine-required-message="Required field" data-pristine-minlength-message="Minimum length 16 characters" data-pristine-maxlength-message="Maximum length 16 characters">
             </label>
-            <label for="buy-expiration-month">
+            <label class="buy-card__element buy-card__element--exp-code" for="buy-expiration-month">
               <p class="buy-card__input-title">Expiration code</p>
               <div class="buy-card__flex-wrap">
-                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-month" id="buy-expiration-month" minlength="2" maxlength="2" required>
-                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-year" id="buy-expiration-year" minlength="2" maxlength="2" required>
+                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-month" id="buy-expiration-month" minlength="2" maxlength="2" required data-pristine-required-message="Required field" data-pristine-minlength-message="Minimum length 2 characters" data-pristine-maxlength-message="Maximum length 2 characters">
+                <input class="buy-card__input buy-card__input--short" type="number" name="buy-expiration-year" id="buy-expiration-year" minlength="2" maxlength="2" required data-pristine-required-message="Required field" data-pristine-minlength-message="Minimum length 2 characters" data-pristine-maxlength-message="Maximum length 2 characters">
               </div>
             </label>
-            <label for="buy-cvc">
+            <label class="buy-card__element" for="buy-cvc">
               <p class="buy-card__input-title">CVC</p>
-              <input class="buy-card__input buy-card__input--short" type="number" name="buy-cvc" id="buy-cvc" minlength="3" maxlength="3" required>
+              <input class="buy-card__input buy-card__input--short" type="number" name="buy-cvc" id="buy-cvc" minlength="3" maxlength="3" required data-pristine-required-message="Required field" data-pristine-minlength-message="Minimum length 3 characters" data-pristine-maxlength-message="Maximum length 3 characters">
             </label>
-            <label for="buy-name">
+            <label class="buy-card__element" for="buy-name">
               <p class="buy-card__input-title">Cardholder name</p>
-              <input class="buy-card__input" type="text" name="buy-name" id="buy-name" required>
+              <input class="buy-card__input" type="text" name="buy-name" id="buy-name" required data-pristine-required-message="Required field">
             </label>
-            <label for="buy-postal-code">
+            <label class="buy-card__element" for="buy-postal-code">
               <p class="buy-card__input-title">Postal code</p>
-              <input class="buy-card__input" type="number" name="buy-postal-code" id="buy-postal-code" required>
+              <input class="buy-card__input" type="number" name="buy-postal-code" id="buy-postal-code" required data-pristine-required-message="Required field">
             </label>
-            <label for="buy-city">
+            <label class="buy-card__element" for="buy-city">
               <p class="buy-card__input-title">City / Town</p>
-              <input class="buy-card__input" type="text" name="buy-city" id="buy-city" required>
+              <input class="buy-card__input" type="text" name="buy-city" id="buy-city" required data-pristine-required-message="Required field">
             </label>
             <div class="buy-card__flex-wrap buy-card__flex-wrap--price">
               <button class="buy-card__button button" type="submit">Buy</button>
@@ -644,6 +644,7 @@
     </div>
   </template>
 
+  <script src="pristine.min.js"></script>
   <script src="assets/js/main.js" type="module"></script>
 </body>
 </html>

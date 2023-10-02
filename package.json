@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "less": "^4.1.3"
+  },
+  "dependencies": {
+    "pristinejs": "^1.1.0"
   }
 }
