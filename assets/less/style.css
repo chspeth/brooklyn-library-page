@@ -1144,18 +1144,18 @@ ul {
 .profile__subtitle {
   margin: 0;
   margin-top: -30px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #0c0c0e;
   font-size: 25px;
   letter-spacing: normal;
 }
 .profile__list {
-  height: 61px;
+  height: 71px;
   overflow: auto;
   scrollbar-width: thin;
   list-style-type: disc;
   margin-left: 9px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding-left: 20px;
 }
 .profile__item {

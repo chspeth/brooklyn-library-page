@@ -1,4 +1,5 @@
 import {profileNameLetters, profileName, profileCardNumber, profileVisits, profileBooks, profileList} from './profile.js';
+import {reloadFavorites} from './favorites-slider.js';
 
 const dropdownMenuAuthorized = document.querySelector('.dropdown-menu--authorized');
 const cardNumberTitle = dropdownMenuAuthorized.querySelector('.dropdown-menu__title');
@@ -89,7 +90,7 @@ function changeAvatarToLetters () {
 
 function changeAvatarNoname () {
   profileButtons.forEach((btn) => {
-    btn.style.backgroundImage = 'url("../assets/img/icons/icon-profile.svg")';
+    btn.style.backgroundImage = 'url("../img/icons/icon-profile.svg")';
     btn.style.backgroundColor = 'transparent';
     btn.textContent = '';
   })
@@ -146,17 +147,6 @@ function setBooksNumber () {
   })
 }
 
-// function countBooks () {
-//   const idOfActiveUser = findIdOfActiveUser();
-//   users[idOfActiveUser.toString()].books++;
-
-//   profileBooks.forEach((el) => {
-//     el.textContent = users[idOfActiveUser.toString()].ownBooks.length;
-//   })
-
-//   LS.setItem('users', JSON.stringify(users));
-// }
-
 function setBooksToProfile () {
   users = JSON.parse(LS.getItem('users'));
   const idOfActiveUser = findIdOfActiveUser();
@@ -203,6 +193,34 @@ function changeCardSectionBack () {
   getSectionProfileButton.style.display = 'none';
 }
 
+function changeFavoritesButtons () {
+  const books = document.querySelectorAll('.seasons__book-title');
+  
+  if (LS.getItem('users') && findActiveUser() !== null) {
+    const activeUser = findActiveUser();
+    const ownedBooks = activeUser.ownBooks;
+    ownedBooks.forEach((el) => {
+      for (let i = 0; i < books.length; i++) {
+        if (books[i].textContent === el.split(',')[0]) {
+          const element = books[i].closest('.seasons__item');
+          const btn = element.querySelector('.seasons__button');
+          btn.classList.add('button--disabled');
+          btn.setAttribute('disabled', 'disabled');
+          btn.textContent = 'Own';
+        }
+      }
+    })
+  } else {
+    for (let i = 0; i < books.length; i++) {
+      const element = books[i].closest('.seasons__item');
+      const btn = element.querySelector('.seasons__button');
+      btn.classList.remove('button--disabled');
+      btn.removeAttribute('disabled');
+      btn.textContent = 'Buy';
+    }
+  }
+}
+
 function changePageAfterAutorization () {
   if (LS.getItem('users') && findActiveUser() !== null) {
     changeAvatarToLetters();
@@ -213,12 +231,15 @@ function changePageAfterAutorization () {
     changeCardSection();
     setBooksNumber();
     setBooksToProfile();
+    changeFavoritesButtons();
   } else {
     changeAvatarNoname();
     dropdownMenuAuthorized.classList.remove('shown');
     dropdownMenuAuthorized.classList.add('hidden');
     removeTitle();
     changeCardSectionBack();
+    changeFavoritesButtons();
+    reloadFavorites();
   }
 }
 
@@ -233,4 +254,4 @@ logoutButton.addEventListener('click', () => {
   changePageAfterAutorization();
 })
 
-export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, setBooksNumber, setBooksToProfile};
+export {formData, setDataToLS, changePageAfterAutorization, findActiveUser, LS, toggleClass, checkButton, cardTable, findIdOfActiveUser, setBooksNumber, setBooksToProfile, changeFavoritesButtons};

@@ -1,7 +1,6 @@
-import {LS, findActiveUser, setBooksNumber, findIdOfActiveUser, setBooksToProfile} from './autorization-changes.js';
+import {LS, findActiveUser, setBooksNumber, findIdOfActiveUser, setBooksToProfile, changeFavoritesButtons} from './autorization-changes.js';
 import {toggleLoginClass} from './login-registration.js';
 import {toggleBuyCardClass} from './buy-card.js';
-// import {profileList} from './profile.js';
 
 const buyButtons = document.querySelectorAll('.seasons__button');
 
@@ -21,9 +20,6 @@ buyButtons.forEach((btn) => {
       if (activeUser['hasLibraryCard'] === false) {
         toggleBuyCardClass();
       } else {
-        btn.classList.add('button--disabled');
-        btn.setAttribute('disabled', 'disabled');
-        btn.textContent = 'Own';
 
         const element = btn.closest('.seasons__item');
         const book = element.querySelector('.seasons__book-title').textContent;
@@ -34,6 +30,7 @@ buyButtons.forEach((btn) => {
         users = JSON.parse(LS.getItem('users'));
         setBooksNumber();
         setBooksToProfile();
+        changeFavoritesButtons();
       }
     }
   })
